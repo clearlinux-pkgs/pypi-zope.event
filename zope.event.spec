@@ -6,7 +6,7 @@
 #
 Name     : zope.event
 Version  : 4.2.0
-Release  : 1
+Release  : 2
 URL      : https://pypi.python.org/packages/cd/a5/4927363244aaa7fd8a696d32005ea8214c4811550d35edea27797ebbd4fd/zope.event-4.2.0.tar.gz
 Source0  : https://pypi.python.org/packages/cd/a5/4927363244aaa7fd8a696d32005ea8214c4811550d35edea27797ebbd4fd/zope.event-4.2.0.tar.gz
 Source99 : https://pypi.python.org/packages/cd/a5/4927363244aaa7fd8a696d32005ea8214c4811550d35edea27797ebbd4fd/zope.event-4.2.0.tar.gz.asc
@@ -44,7 +44,7 @@ python components for the zope.event package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1485817343
+export SOURCE_DATE_EPOCH=1485817444
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -54,7 +54,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python2 setup.py test
 %install
-export SOURCE_DATE_EPOCH=1485817343
+export SOURCE_DATE_EPOCH=1485817444
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
