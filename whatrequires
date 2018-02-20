@@ -1,2 +1,5 @@
 # This file contains recursive sources that require this package
+certbot
 zope.component
+zope.location
+zope.security
