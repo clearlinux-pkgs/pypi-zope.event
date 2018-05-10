@@ -4,7 +4,7 @@
 #
 Name     : zope.event
 Version  : 4.3.0
-Release  : 8
+Release  : 9
 URL      : https://pypi.debian.net/zope.event/zope.event-4.3.0.tar.gz
 Source0  : https://pypi.debian.net/zope.event/zope.event-4.3.0.tar.gz
 Summary  : Very basic event publishing system
