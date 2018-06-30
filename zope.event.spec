@@ -4,7 +4,7 @@
 #
 Name     : zope.event
 Version  : 4.3.0
-Release  : 13
+Release  : 14
 URL      : https://pypi.debian.net/zope.event/zope.event-4.3.0.tar.gz
 Source0  : https://pypi.debian.net/zope.event/zope.event-4.3.0.tar.gz
 Summary  : Very basic event publishing system
@@ -64,14 +64,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1529092272
+export SOURCE_DATE_EPOCH=1530331549
 python3 setup.py build -b py3
 
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test
+PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/zope.event
