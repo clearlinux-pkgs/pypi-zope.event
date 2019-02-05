@@ -4,31 +4,30 @@
 #
 Name     : zope.event
 Version  : 4.3.0
-Release  : 19
+Release  : 20
 URL      : https://pypi.debian.net/zope.event/zope.event-4.3.0.tar.gz
 Source0  : https://pypi.debian.net/zope.event/zope.event-4.3.0.tar.gz
 Summary  : Very basic event publishing system
 Group    : Development/Tools
 License  : ZPL-2.1
-Requires: zope.event-python3
-Requires: zope.event-license
-Requires: zope.event-python
-Requires: Sphinx
+Requires: zope.event-license = %{version}-%{release}
+Requires: zope.event-python = %{version}-%{release}
+Requires: zope.event-python3 = %{version}-%{release}
 Requires: setuptools
-Requires: zope.testrunner
-BuildRequires : pbr
-BuildRequires : pip
+BuildRequires : buildreq-distutils3
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
-BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : tox
 BuildRequires : virtualenv
 
 %description
-``zope.event`` README
-        =======================
+=======================
+=======================
+.. image:: https://img.shields.io/pypi/v/zope.event.svg
+:target: https://pypi.python.org/pypi/zope.event/
+:alt: Latest Version
 
 %package license
 Summary: license components for the zope.event package.
@@ -41,7 +40,7 @@ license components for the zope.event package.
 %package python
 Summary: python components for the zope.event package.
 Group: Default
-Requires: zope.event-python3
+Requires: zope.event-python3 = %{version}-%{release}
 
 %description python
 python components for the zope.event package.
@@ -64,8 +63,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530331549
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1549390894
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %check
 export http_proxy=http://127.0.0.1:9/
@@ -74,9 +74,9 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/zope.event
-cp LICENSE.txt %{buildroot}/usr/share/doc/zope.event/LICENSE.txt
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/zope.event
+cp LICENSE.txt %{buildroot}/usr/share/package-licenses/zope.event/LICENSE.txt
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -85,8 +85,8 @@ echo ----[ mark ]----
 %defattr(-,root,root,-)
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/zope.event/LICENSE.txt
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/zope.event/LICENSE.txt
 
 %files python
 %defattr(-,root,root,-)
