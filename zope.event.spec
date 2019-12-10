@@ -4,7 +4,7 @@
 #
 Name     : zope.event
 Version  : 4.4
-Release  : 25
+Release  : 26
 URL      : https://files.pythonhosted.org/packages/4c/b2/51c0369adcf5be2334280eed230192ab3b03f81f8efda9ddea6f65cc7b32/zope.event-4.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/4c/b2/51c0369adcf5be2334280eed230192ab3b03f81f8efda9ddea6f65cc7b32/zope.event-4.4.tar.gz
 Summary  : Very basic event publishing system
@@ -23,11 +23,8 @@ BuildRequires : tox
 BuildRequires : virtualenv
 
 %description
-=======================
-=======================
-.. image:: https://img.shields.io/pypi/v/zope.event.svg
-:target: https://pypi.python.org/pypi/zope.event/
-:alt: Latest Version
+``zope.event`` README
+        =======================
 
 %package license
 Summary: license components for the zope.event package.
@@ -57,13 +54,15 @@ python3 components for the zope.event package.
 
 %prep
 %setup -q -n zope.event-4.4
+cd %{_builddir}/zope.event-4.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1557023274
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1576018001
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -78,12 +77,12 @@ python3 setup.py build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test
+PYTHONPATH=%{buildroot}$(python -c "import sys; print(sys.path[-1])") python setup.py test
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/zope.event
-cp LICENSE.txt %{buildroot}/usr/share/package-licenses/zope.event/LICENSE.txt
+cp %{_builddir}/zope.event-4.4/LICENSE.txt %{buildroot}/usr/share/package-licenses/zope.event/a0b53f43aab58b46bf79ba756c50771c605ab4c5
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -94,7 +93,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/zope.event/LICENSE.txt
+/usr/share/package-licenses/zope.event/a0b53f43aab58b46bf79ba756c50771c605ab4c5
 
 %files python
 %defattr(-,root,root,-)
