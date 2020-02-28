@@ -2,3 +2,4 @@
 pyroma
 zope.component
 zope.location
+zope.schema
