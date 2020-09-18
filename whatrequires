@@ -1,4 +1,5 @@
 # This file contains recursive sources that require this package
+gevent
 pyroma
 zope.component
 zope.location
