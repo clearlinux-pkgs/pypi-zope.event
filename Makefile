@@ -1,5 +1,5 @@
 PKG_NAME := pypi-zope.event
-URL = https://files.pythonhosted.org/packages/42/49/ba8610674cad200da2f9c87b5f52fdcf18b02dd743a8a1e90726803cc42f/zope.event-4.6.tar.gz
+URL = https://files.pythonhosted.org/packages/46/c2/427f1867bb96555d1d34342f1dd97f8c420966ab564d58d18469a1db8736/zope.event-5.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
