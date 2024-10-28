@@ -5,7 +5,7 @@
 #
 Name     : pypi-zope.event
 Version  : 5.0
-Release  : 58
+Release  : 59
 URL      : https://files.pythonhosted.org/packages/46/c2/427f1867bb96555d1d34342f1dd97f8c420966ab564d58d18469a1db8736/zope.event-5.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/46/c2/427f1867bb96555d1d34342f1dd97f8c420966ab564d58d18469a1db8736/zope.event-5.0.tar.gz
 Summary  : Very basic event publishing system
